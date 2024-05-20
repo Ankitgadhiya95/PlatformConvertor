@@ -52,12 +52,7 @@ class _ChatsState extends State<Calls> {
                           path: contact[i].phone,
                         );
                         await launchUrl(launchUri);
-                        /*var url = Uri.parse();
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        } else {
-                          throw 'Could not launch $url';
-                        }*/
+                        
                       },
                     ),
                   );
