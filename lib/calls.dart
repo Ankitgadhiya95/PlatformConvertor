@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'modelclass.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 class Calls extends StatefulWidget {
   const Calls({super.key});
 
@@ -46,7 +46,19 @@ class _ChatsState extends State<Calls> {
                     subtitle: Text("+91 ${contact[i].phone}"),
                     trailing: IconButton(
                       icon: Icon(Icons.call, color: Colors.green, size: 33),
-                      onPressed: () async {},
+                      onPressed: () async {
+                        final Uri launchUri = Uri(
+                          scheme: 'tel',
+                          path: contact[i].phone,
+                        );
+                        await launchUrl(launchUri);
+                        /*var url = Uri.parse();
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }*/
+                      },
                     ),
                   );
                 },
